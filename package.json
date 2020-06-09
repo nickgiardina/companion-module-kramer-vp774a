@@ -1,0 +1,19 @@
+{
+	"name": "kramer-vp773a",
+	"version": "1.0.0",
+	"api_version": "1.0.0",
+	"keywords": [
+		"Image Processing"
+	],
+	"manufacturer": "Kramer",
+	"product": "VP-773A",
+	"shortname": "vp773a",
+	"description": "Module to control Kramer VP-773A",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Sam Raby <sam@samraby.co.uk>, Nigel Brown <eventreplay@outlook.com>",
+	"homepage": "https://www.kramerav.com/product/vp-773a",
+	"license": "MIT"
+}
