@@ -107,6 +107,7 @@ instance.prototype.actions = function(system) {
 					type: 'dropdown',
 					label: 'Input',
 					id: 'input',
+					default: '13',
 					choices: [
 						{ id: '13', label: 'HDMI 1' },
 						{ id: '14', label: 'HDMI 2' },
@@ -127,12 +128,13 @@ instance.prototype.actions = function(system) {
 					type: 'dropdown',
 					label: 'Mode',
 					id: 'mode',
+					default: '0',
 					choices: [
 						{ id: '0', label: 'Single Window' },
 						{ id: '1', label: 'Picture in Picture' },
 						{ id: '2', label: 'Picture + Picture' },
 						{ id: '3', label: 'Split' },
-						{ id: '4', label: 'Customized' },
+						{ id: '4', label: 'Customized' }
 					]
 				}
 			]
@@ -143,11 +145,12 @@ instance.prototype.actions = function(system) {
 				{
 					type: 'dropdown',
 					label: 'Colour',
-					id: 'colour',
+					id: 'colourID',
+					default: '0',
 					choices: [
 						{ id: '0', label: 'Grey' },
 						{ id: '1', label: 'Blue' },
-						{ id: '2', label: 'Black' },
+						{ id: '2', label: 'Black' }
 					]
 				}
 			]
@@ -158,10 +161,11 @@ instance.prototype.actions = function(system) {
 				{
 					type: 'dropdown',
 					label: 'Window',
-					id: 'window',
+					id: 'windowID',
+					default: '0',
 					choices: [
 						{ id: '0', label: 'Main Window' },
-						{ id: '1', label: 'PiP Window' },
+						{ id: '1', label: 'PiP Window' }
 					]
 				}
 			]
@@ -173,9 +177,10 @@ instance.prototype.actions = function(system) {
 					type: 'dropdown',
 					label: 'Blank on/off',
 					id: 'blankId',
+					default: '0',
 					choices: [
 						{ id: '0', label: 'Off' },
-						{ id: '1', label: 'On' },
+						{ id: '1', label: 'On' }
 					]
 				}
 			]
@@ -187,9 +192,10 @@ instance.prototype.actions = function(system) {
 					type: 'dropdown',
 					label: 'Freeze on/off',
 					id: 'frzId',
+					default: '0',
 					choices: [
 						{ id: '0', label: 'Off' },
-						{ id: '1', label: 'On' },
+						{ id: '1', label: 'On' }
 					]
 				}
 			]
@@ -201,9 +207,10 @@ instance.prototype.actions = function(system) {
 					type: 'dropdown',
 					label: 'HDCP on/off',
 					id: 'hdcp',
+					default: '0',
 					choices: [
 						{ id: '0', label: 'Off' },
-						{ id: '1', label: 'On' },
+						{ id: '1', label: 'On' }
 					]
 				}
 			]
@@ -215,9 +222,10 @@ instance.prototype.actions = function(system) {
 					type: 'dropdown',
 					label: 'Mute on/off',
 					id: 'muteId',
+					default: '0',
 					choices: [
 						{ id: '0', label: 'Off' },
-						{ id: '1', label: 'On' },
+						{ id: '1', label: 'On' }
 					]
 				}
 			]
@@ -240,6 +248,7 @@ instance.prototype.actions = function(system) {
 
 
 	instance.prototype.action = function(action) {
+		console.log(action);
 		var self = this;
 		var opt = action.options;
 		var id = action.action;
@@ -288,21 +297,27 @@ instance.prototype.actions = function(system) {
 				break;		
 
 			case 'no_signal':
-				cmd = '#Y 0,735,' + opt.colour + '';
+				cmd = '#Y 0,735,' + opt.colourID + '';
 				break;
 
 			case 'window_control':
-				cmd = '#Y 0,721,' + opt.window + '';
+				cmd = '#Y 0,721,' + opt.windowID + '';
 				break;	
 
 			case 'mute':
 				cmd = '#Y 0,743,' + opt.muteId + '';
 				break;
 
+			case 'hdcp':
+				cmd = '#Y 0,743,' + opt.hdcp + '';
+				break;
+
 			case 'command':
 				cmd = opt.custom;
 				break;
 
+			default:
+  			break;
 	}
 
 	if (cmd !== undefined) {
