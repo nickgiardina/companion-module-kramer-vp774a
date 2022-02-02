@@ -14,6 +14,13 @@
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "Sam Raby <sam@samraby.co.uk>, Nigel Brown <eventreplay@outlook.com>",
-	"homepage": "https://www.kramerav.com/product/vp-773a",
-	"license": "MIT"
+	"homepage": "https://github.com/bitfocus/companion-module-kramer-vp773a#readme",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/bitfocus/companion-module-kramer-vp773a/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bitfocus/companion-module-kramer-vp773a.git"
+	}
 }
